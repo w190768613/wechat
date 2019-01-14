@@ -31,34 +31,24 @@ Page({
   },
   search: function () {
     if (this.data.inputVal == "") {
-      this.setData({
-        //modalHidden: false
-      })
       return;
-    } else {
-      this.setData({
-        //modalHiddenOne: false
-      })
-     // return;
     }
-    this.setData({
-      hidden: true
-    });
+   
     var page = this;
      
     wx.request({
       url: 'http://douban.uieee.com/v2/movie/search?q=' + page.data.inputVal,
-       header: {
-         'Content-Type': 'application/xml'
-       },
-       success: function(res) {
-         var subjects = res.data.subjects;
-         subjectUtil.processSubjects(subjects);
-         page.setData({
-           movies: subjects,
-         });
-       }
-     })
+        header: {
+          'Content-Type': 'application/xml'
+        },
+        success: function(res) {
+          var subjects = res.data.subjects;
+          subjectUtil.processSubjects(subjects);
+          page.setData({
+            movies: subjects,
+        });
+      }
+    })
   },
   hideModal: function () {
     this.setData({

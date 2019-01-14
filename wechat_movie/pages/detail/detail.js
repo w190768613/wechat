@@ -23,24 +23,19 @@ Page({
   },
   loadMovie: function (movieId) {
     var page = this;
-    //var subjects = movieListData.subjects;
-   // subjectUtil.processSubjects(subjects);
-    //page.setData({ movies: subjects, hidden: true });
 
-     //var movieId= wx.getStorageSync('movieId');
-     console.log(movieId);
-     wx.request({
-       url: 'https://douban.uieee.com/v2/movie/subject/' + movieId,
+    wx.request({
+      url: 'https://douban.uieee.com/v2/movie/subject/' + movieId,
       header: {
-         'Content-Type': 'application/xml'
-       },
-       success: function(res) {
-         var subject = res.data;
-         subjectUtil.processSubject(subject);
-         page.setData({
-           movie: subject
-         });
-       }
-     })
+        'Content-Type': 'application/xml'
+      },
+      success: function(res) {
+        var subject = res.data;
+        subjectUtil.processSubject(subject);
+        page.setData({
+          movie: subject
+        });
+      }
+    })
   }
 })
