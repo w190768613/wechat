@@ -1,4 +1,4 @@
-## 2. wechat_movie 豆瓣电影小程序
+## wechat_movie 豆瓣电影小程序
 
 ![index](https://github.com/w190768613/wechat/blob/master/wechat_movie/index.png)
 
